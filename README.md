@@ -20,10 +20,15 @@ Laboratorio 10
 Luego de cargar la proteína, se compararon los parámetros'backbone vs noH' en el cálculo de RMSD. Se vió que existe una diferencia cuantitativa entre las distancias de los átomos para los distintos parámetros en función del tiempo (frames). Sin embargo, el patrón de trayectoria o comportamiento de trayectoria es bastante similar, por lo que la diferencia de ausencia y presencia de hidrógenos es mayoritariamente cuantitativa y no cualitativa (__Imagen 1__). Los resultados sugieren que los hidrógenos juegan un rol significativo en la estructura espacial a través del tiempo de la proteína. Esta hipótesis se puede respaldar por el efecto que tienen los hidrógenos en la estructura espacial o terciaria de la proteína (es decir, modela junto a otros factores el plegamiento de la proteína), ya que ejercen una fuerza electrostática entre los residuos de la proteína que modelarán la estructura de la misma. Por lo que, al eliminar completamente el efecto de los hidrógenos en el cálculo de RMSD, el efecto electrotático relacionado con los mismos no estará presente y genera el resultado observado en el gráfico, mostrando que el aumento en las distancias (en Angstrom) de los átomos por 'frame', probablemente se deba a que las fuerzas electrotaticas de puentes de hidrógeno que acoplan a la proteína genera un distanciamiento sistemático entre los residuos de la proteína.
 
 ![Imagen1](https://github.com/CapitanFlint/LAboratorio10/blob/master/RMSDproteinaconysinhidrogenos1.png)
++ __Imagen 1__.
 
 ### Ligando 
 
 Al cargar el ligando y configurar el script con los parámetros a comparar: 'resname SUV and noH vs protein and noH', se ve que hay un aumento significativo de las distancias entre las coordenadas ubicadas entre los 'frames' 55 y 60 (__Imagen 2__). Esto sugiere que a partir del 'frame' 60, la interacción proteína-ligando produce un cambio conformacional que cambia drásticamente el patrón de movimiento atómico. Es probable de que ambas, plegamiento proteico y coordenadas del ligando para ese tiempo en específico, tengan la energía de activación y los parámetros fisicoquímicos adecuados para producir ese cambio conformacional, que se reproduce en un aumento de las distancias entre átomos.
+
+![Imagen2](https://github.com/CapitanFlint/LAboratorio10/blob/master/RMSDproteinavsligandoframe60.png)
++ __Imagen 2__.
+
 
 # Sección Salt Bridge
 ----
@@ -34,14 +39,32 @@ Luego, seleccioné uno de los archivos creados (GLU288-LYS284) y los valores que
 La elección del archivo fue aleatoria, debido a que no pude encontrar referencia en literatura sobre la interacción específica de orexina-SUV. Encontré varias direcciones en la página pdb, pero ninguno de los archivos .pdb concordaban con la proteína que utilizamos en este trabajo, por lo que al no poder encontrar el sitio activo exacto, tuve que escoger cualquiera. En la imagen se ve que el patrón de formación de puentes salinos es bastante uniforme, sin embargo al inicio (específicamente entre los frames 5-35) se ve una disminución significativa. A pesar, luego del frame 60 se ve que se vuelve a estabilizar.
 Pienso que la información que aporta no es significativa ya que no tengo la certeza de que esa relación entre esos residuos esté y/o se deba a que se encuentra en el sitio activo.
 
+![Imagen3](https://github.com/CapitanFlint/LAboratorio10/blob/master/graficosaltbridge.png)
+
++ __Imagen 3.__
+
 # Sección NAMD Energy
 
 Como se ve en la __Imagen 4__, los valores y comportamientos para los parámetros 'energía electrostática, Van der Waal y energía total' son bastante uniformes a través del tiempo. Entre los frames 30-70 se ve que hay un leve aumento en la energía total, y esto se correlaciona con el aumento de la energía electrostática y de Van der Waal para el mismo rango. En general, el comportamiento es bastante uniforme, y además, el gráfico sugiere que las energías de Van der Waal influyen más que las energías electrostáticas, y esto quizá sugiera que el plegamiento de la proteína es bastante convergente.
 
+![Imagen4](https://github.com/CapitanFlint/LAboratorio10/blob/master/namd%20energy.PNG)
+
++ __Imagen 4.__
+
 # Sección Hydrogen bonds
 
-La formación de puentes de hidrógeno para los parámetros en _default_ se muestran en la __Imagen 5__. Se ve que existe un _gap_ bastate amplio entre las dos primeras formaciones y las demás. Cada _peak_ representa la formación y _destrucción_ de un puente de hidrógeno entre un dador y aceptor. Luego, para hacer un análisis comparativo, realicé el mismo procedimiento pero esta vez aumenté en 3.2 y 3.5 Angstrom la distancia máxima de interacción Dador-aceptor y consecuentemente, formación de puentes de hidrógeno. En la __Imagen 6__ se ve que no solo el eje Y aumenta, sino que además aparecen nuevas formaciones de puentes de hidrógeno. A pesar, el número de puentes de hidrógeno formados es similar en casi todas las coordenadas medidas (es sistemáticamente similar en la mayoría de los frames). 
+La formación de puentes de hidrógeno para los parámetros en _default_ se muestran en la __Imagen 5__. Se ve que existe un _gap_ bastate amplio entre las dos primeras formaciones y las demás. Cada _peak_ representa la formación y _destrucción_ de un puente de hidrógeno entre un dador y aceptor. 
+
+![Imagen5](https://github.com/CapitanFlint/LAboratorio10/blob/master/hBONDS1.png)
+
++ __Imagen 5.__
+
+Luego, para hacer un análisis comparativo, realicé el mismo procedimiento pero esta vez aumenté en 3.2 y 3.5 Angstrom la distancia máxima de interacción Dador-aceptor y consecuentemente, formación de puentes de hidrógeno. En la __Imagen 6__ se ve que no solo el eje Y aumenta, sino que además aparecen nuevas formaciones de puentes de hidrógeno. A pesar, el número de puentes de hidrógeno formados es similar en casi todas las coordenadas medidas (es sistemáticamente similar en la mayoría de los frames). 
 Los puentes de hidrógeno deberían formarse entre los residuos con zonas polares (oxígeno, por ejemplo), tanto como aceptores como dadores.
+
+![Imagen6](https://github.com/CapitanFlint/LAboratorio10/blob/master/hbonds3.5ANG.png)
++ __Imagen 6.__
+
 
 # Conclusión
 
